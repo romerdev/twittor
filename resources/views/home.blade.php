@@ -10,8 +10,8 @@
     </div>
     <div class="row mt-2 ml-3 mb-2">
         <div class="col-12">
-            <h5 style="font-weight: 700; font-size: 19px;">Romer</h5>
-            <p style="margin-top: -12px; font-size: 15px;" class="text-muted mb-1">@Meffu_</p>
+            <h5 style="font-weight: 700; font-size: 19px;">{{ $user->name }}</h5>
+            <p style="margin-top: -12px; font-size: 15px;" class="text-muted mb-1"><?php echo('@')?>{{ $user->username }}</p>
             <p style="font-size: 15px;" class="mb-1">17 y/o • 💻 Webdeveloper</p>
             <div class="d-flex">
                 <p style="font-size: 15px;" class="mr-3"><strong>43</strong><span class="text-muted"> Following</span></p>
