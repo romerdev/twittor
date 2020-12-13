@@ -77,6 +77,9 @@
         </nav>
 
         <main class="pb-4">
+            <a href="#" class="button-primary tor-button">
+                <img src="{{ asset('svg/tor.svg') }}" style="height: 1.5em;" alt="Add Tor">
+            </a>
             @yield('content')
         </main>
     </div>

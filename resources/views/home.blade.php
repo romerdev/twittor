@@ -4,8 +4,9 @@
 <div class="container">
     <img src="https://pbs.twimg.com/profile_banners/1007518403979038720/1605860037/1500x500" style="width: 100%; max-height: 300px;  object-fit: cover;" alt="Profile Banner">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-between">
             <img src="https://pbs.twimg.com/profile_images/1288073614655467523/OQWj_FjO_400x400.jpg" style="min-height: 75px ;height: 20vw; max-height: 150px; margin-top: -75px; border: 5px solid white;" class="rounded-circle profile-picture" alt="Profile Picture">
+            <a href="#" class="mt-2 button-secondary profile-button">Edit Profile</a>
         </div>
     </div>
     <div class="row mt-2 ml-3 mb-2">
@@ -13,7 +14,7 @@
             <h5 style="font-weight: 700; font-size: 19px;">{{ $user->name }}</h5>
             <p style="margin-top: -12px; font-size: 15px;" class="text-muted mb-1"><?php echo('@')?>{{ $user->username }}</p>
             <p style="font-size: 15px;" class="mb-1">{{ $user->profile->description }}</p>
-            <a href="#">{{ $user->profile->url }}</a>
+            <a href="#" target="_blank">{{ $user->profile->url }}</a>
             <div class="d-flex mt-1">
                 <p style="font-size: 15px;" class="mr-3"><strong>43</strong><span class="text-muted"> Following</span></p>
                 <p style="font-size: 15px;"><strong>271</strong><span class="text-muted"> Followers</span></p>

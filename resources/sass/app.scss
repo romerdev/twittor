@@ -24,6 +24,10 @@
     }
 }
 
+body {
+    overflow-x: hidden;
+}
+
 main {
     .container {
         padding: 0 !important;
@@ -36,3 +40,59 @@ main {
     margin-left: 15px !important;
     margin-right: 15px !important;
 }
+
+a {
+    color: #1DA1F2 !important;
+}
+
+.button-primary {
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 9999px;
+    padding: .5em 1em;
+    transition-duration: 0.2s;
+    background-color: rgb(29, 161, 242);
+}
+
+.button-primary:hover {
+    background-color: rgb(29, 129, 194);
+}
+
+.button-secondary {
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid #1DA1F2;
+    border-radius: 9999px;
+    padding: .5em 1em;
+    transition-duration: 0.2s;
+}
+
+.button-secondary:hover {
+    background-color: rgb(29, 161, 242, 0.2);
+}
+
+.profile-button {
+    position: absolute;
+    right: 0;
+}
+
+.tor-button {
+    position: absolute;
+    right: 3vw;
+    bottom: 3em;
+    padding: 1em !important;
+    animation: right-left-transition 0.75s;
+}
+
+@keyframes right-left-transition {
+    from {
+        transform: translateX(6vw);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+ }
