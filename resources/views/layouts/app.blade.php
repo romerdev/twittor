@@ -77,11 +77,56 @@
         </nav>
 
         <main class="pb-4">
-            <a href="#" class="button-primary tor-button">
+            <a href="#" class="button-primary tor-button" data-bs-toggle="modal" data-bs-target="#addTor">
                 <img src="{{ asset('svg/tor.svg') }}" style="height: 1.5em;" alt="Add Tor">
             </a>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addTor" tabindex="-1" aria-labelledby="addTorLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addTorLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                                <div class="form-group row">
+                                    <label for="text" class="col-md-4 col-form-label">Post Text</label>
+
+                                    <input id="text" type="text" class="form-control @error('text') is-invalid @enderror" name="text" value="{{ old('text') }}" required autofocus>
+
+                                    @error('text')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="row">
+                                    <label for="image" class="col-md-4 col-form-label">Post Image</label>
+
+                                    <input type="file" class="form-control-file" id="image" name="image">
+
+                                    @error('image')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="row mt-4">
+                                    <a class="button-primary">Add New Tor</a>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             @yield('content')
         </main>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>

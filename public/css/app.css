@@ -10905,10 +10905,6 @@ a.text-dark:focus {
     margin-left: 0 !important;
   }
 
-  .row.ml-3 {
-    margin-left: 15px !important;
-  }
-
   .container {
     border: none !important;
   }
@@ -10916,13 +10912,27 @@ a.text-dark:focus {
   .action-bar {
     width: 100% !important;
   }
+
+  .post-image {
+    max-height: 40vw !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 798px;
+  }
 }
 
 body {
   overflow-x: hidden;
 }
 
-main .container {
+main .profile {
   padding: 0 !important;
   border-left: 1px solid #ebeef0;
   border-right: 1px solid #ebeef0;
@@ -10938,9 +10948,11 @@ a {
 }
 
 .button-primary {
+  cursor: pointer;
   text-decoration: none !important;
   font-weight: 700;
   font-size: 15px;
+  color: white !important;
   border-radius: 9999px;
   padding: 0.5em 1em;
   transition-duration: 0.2s;
@@ -10952,6 +10964,7 @@ a {
 }
 
 .button-secondary {
+  cursor: pointer;
   text-decoration: none !important;
   font-weight: 700;
   font-size: 15px;
@@ -10971,12 +10984,19 @@ a {
 }
 
 .tor-button {
-  position: absolute;
+  position: fixed;
   right: 3vw;
   bottom: 3em;
   padding: 1em !important;
   -webkit-animation: right-left-transition 0.75s;
           animation: right-left-transition 0.75s;
+}
+
+button,
+button:focus,
+button:active {
+  border: none;
+  outline: none !important;
 }
 
 @-webkit-keyframes right-left-transition {
