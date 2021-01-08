@@ -21,7 +21,7 @@
             </p>
         </div>
     </div>
-    <img src="https://pbs.twimg.com/profile_banners/1007518403979038720/1605860037/1500x500" style="width: 100%; max-height: 300px; object-fit: cover; margin-top: 54px;" alt="Profile Banner">
+    <img src="https://pbs.twimg.com/profile_banners/1007518403979038720/1608798528/1500x500" style="width: 100%; max-height: 300px; object-fit: cover; margin-top: 54px;" alt="Profile Banner">
     <div class="row">
         <div class="col-12 d-flex justify-content-between">
             <img src="https://pbs.twimg.com/profile_images/1288073614655467523/OQWj_FjO_400x400.jpg" style="min-height: 75px; height: 20vw; max-height: 150px; margin-top: -75px; border: 5px solid white;" class="rounded-circle profile-picture" alt="Profile Picture">
