@@ -10909,12 +10909,27 @@ a.text-dark:focus {
     border: none !important;
   }
 
-  .action-bar {
+  .post-image {
+    max-height: 40vw !important;
+  }
+}
+
+@media only screen and (max-width: 911px) {
+  .image-detail-left {
     width: 100% !important;
   }
 
-  .post-image {
-    max-height: 40vw !important;
+  .image-detail-right {
+    display: none;
+  }
+
+  .sidebar-right {
+    display: none;
+  }
+
+  main {
+    width: 70vw !important;
+    margin: 0 0 0 30vw !important;
   }
 }
 
@@ -10978,6 +10993,21 @@ a {
   background-color: rgba(29, 161, 242, 0.2);
 }
 
+.button-nav {
+  cursor: pointer;
+  text-decoration: none !important;
+  font-weight: 700;
+  font-size: 19px;
+  color: black !important;
+  border-radius: 9999px;
+  padding: 0.5em 1em;
+  transition-duration: 0.2s;
+}
+
+.button-nav:hover {
+  background-color: rgba(29, 161, 242, 0.2);
+}
+
 .profile-button {
   position: absolute;
   right: 0;
@@ -11017,5 +11047,20 @@ button:active {
   to {
     transform: translateX(0);
   }
+}
+
+.button-nav:hover .nav-icon,
+.button-nav:hover p {
+  fill: #1DA1F2;
+  color: #1DA1F2;
+}
+
+.button-nav.active p {
+  color: #1DA1F2;
+}
+
+.button-nav.active svg {
+  fill: #1DA1F2;
+  stroke: #1DA1F2;
 }
 
