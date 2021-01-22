@@ -24,7 +24,7 @@
     <img src="https://pbs.twimg.com/profile_banners/1007518403979038720/1608798528/1500x500" style="width: 100%; max-height: 300px; object-fit: cover; margin-top: 54px;" alt="Profile Banner">
     <div class="row">
         <div class="col-12 d-flex justify-content-between">
-            <img src="https://pbs.twimg.com/profile_images/1288073614655467523/OQWj_FjO_400x400.jpg" style="min-height: 75px; height: 20vw; max-height: 150px; margin-top: -75px; border: 5px solid white;" class="rounded-circle profile-picture" alt="Profile Picture">
+            <img src="https://pbs.twimg.com/profile_images/1347983866179559431/5q3Y4QhU_400x400.jpg" style="min-height: 75px; height: 20vw; max-height: 150px; margin-top: -75px; border: 5px solid white;" class="rounded-circle profile-picture" alt="Profile Picture">
             <a href="#" class="mt-2 button-secondary profile-button">Edit Profile</a>
         </div>
     </div>
@@ -48,38 +48,39 @@
 
     @if($user->posts->count() != 0)
         @foreach($user->posts as $post)
-        <div class="row py-2" style="flex-wrap: nowrap;">
-            <div>
-                <img src="https://pbs.twimg.com/profile_images/1288073614655467523/OQWj_FjO_400x400.jpg" style="width: 50px;" class="rounded-circle mr-2" alt="Profile Picture">
-            </div>
-            <div class="w-100">
-                <div class="d-flex">
-                    <p class="mb-0"><strong>{{ $user->name }}</strong> <span class="text-muted"><?php echo('@')?>{{ $user->username }} · Dec 3</span></p>
-                </div>
-                <div>
-                    <p class="mb-1">{{ $post->text }}</p>
-                    @if($post->image)
-                        <a href="/p/{{ $post->id }}">
-                            <img src="/storage/{{ $post->image }}" class="my-2 post-image" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 15px;" alt="Image">
-                        </a>
-                    @endif
-                </div>
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex">
-                        <img src="{{ asset('svg/comment.svg') }}" class="my-auto pr-2" style="height: 16px" alt="Comment">
-                        <p class="mb-0 text-muted my-auto">3</p>
+            <a href="/p/{{ $post->id }}" class="text-decoration-none text-dark">
+                <div class="row py-2" style="flex-wrap: nowrap;">
+                    <div>
+                            <img src="https://pbs.twimg.com/profile_images/1347983866179559431/5q3Y4QhU_400x400.jpg" style="width: 50px;" class="rounded-circle mr-2" alt="Profile Picture">
                     </div>
-                    <div class="d-flex">
-                        <img src="{{ asset('svg/retweet.svg') }}" class="my-auto pr-2" style="height: 16px" alt="Retweet">
-                        <p class="mb-0 text-muted my-auto">3</p>
-                    </div>
-                    <div class="d-flex">
-                        <img src="{{ asset('svg/like.svg') }}" class="my-auto pr-2" style="height: 16px" alt="Like">
-                        <p class="mb-0 text-muted my-auto">3</p>
+                    <div class="w-100">
+                        <div class="d-flex">
+                            <p class="mb-0"><strong>{{ $user->name }}</strong> <span class="text-muted"><?php echo('@')?>{{ $user->username }} · Dec 3</span></p>
+                        </div>
+                        <div>
+                            <p class="mb-1">{{ $post->text }}</p>
+                            @if($post->image)
+                                <img src="/storage/{{ $post->image }}" class="my-2 post-image" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 15px;" alt="Image">
+                            @endif
+                        </div>
+                        <div class="d-flex justify-content-between px-5">
+                            <div class="d-flex">
+                                <img src="{{ asset('svg/comment.svg') }}" class="my-auto pr-2" style="height: 16px" alt="Comment">
+                                <p class="mb-0 text-muted my-auto">3</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="{{ asset('svg/retweet.svg') }}" class="my-auto pr-2" style="height: 16px" alt="Retweet">
+                                <p class="mb-0 text-muted my-auto">3</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="{{ asset('svg/like.svg') }}" class="my-auto pr-2" style="height: 16px" alt="Like">
+                                <p class="mb-0 text-muted my-auto">3</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </a>
+
 
         <hr class="m-0">
 

@@ -46,7 +46,7 @@
                     </li>
 
                     <li class="mb-2 d-flex">
-                        <a class="button-nav d-flex @if(Route::current()->getName() === "profile.show") active @endif" href="/profile/{{ $user->id }}">
+                        <a class="button-nav d-flex @if(Route::current()->getName() === "profile.show") active @endif" href="/profile/{{ Auth::user()->id }}">
                             <svg height='27px' width='27px' version="1.1" x="0px" y="0px" viewBox="0 0 24 24">
                                 <g>
                                     <path class="nav-icon" d="M12.225 12.165c-1.356 0-2.872-.15-3.84-1.256-.814-.93-1.077-2.368-.805-4.392.38-2.826 2.116-4.513 4.646-4.513s4.267 1.687 4.646 4.513c.272 2.024.008 3.46-.806 4.392-.97 1.106-2.485 1.255-3.84 1.255zm5.849 9.85H6.376c-.663 0-1.25-.28-1.65-.786-.422-.534-.576-1.27-.41-1.968.834-3.53 4.086-5.997 7.908-5.997s7.074 2.466 7.91 5.997c.164.698.01 1.434-.412 1.967-.4.505-.985.785-1.648.785z"></path>
@@ -74,16 +74,16 @@
                         <li class="nav-item dropdown position-absolute" style="bottom: 1rem;">
                             <a id="navbarDropdown" class="nav-link d-flex p-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <div class="d-flex button-nav" style="width: 255px;">
-                                    <img src="https://pbs.twimg.com/profile_images/1288073614655467523/OQWj_FjO_400x400.jpg" style="height: 39px; width: 39px;" class="rounded-circle mr-2" alt="Profile Picture">
+                                    <img src="https://pbs.twimg.com/profile_images/1347983866179559431/5q3Y4QhU_400x400.jpg" style="height: 39px; width: 39px;" class="rounded-circle mr-2" alt="Profile Picture">
                                     <div>
-                                        <p style="font-size: 15px; color: black;" class="font-weight-bold m-0">{{ $user->name }}</p>
-                                        <p style="margin-top: -7px !important; font-size: 15px;" class="text-muted m-0 font-weight-lighter"><?php echo('@')?>{{ $user->username }}</p>
+                                        <p style="font-size: 15px; color: black;" class="font-weight-bold m-0">{{ Auth::user()->name }}</p>
+                                        <p style="margin-top: -7px !important; font-size: 15px;" class="text-muted m-0 font-weight-lighter"><?php echo('@')?>{{ Auth::user()->username }}</p>
                                     </div>
                                     <img class="my-auto ml-auto" src="{{ asset('svg/options.svg') }}" alt="Home icon" height="18px">
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-left mb-2" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Log out of <?php echo('@')?>{{ $user->username }}
+                                        Log out of <?php echo('@')?>{{ Auth::user()->username }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
