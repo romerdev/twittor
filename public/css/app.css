@@ -10970,12 +10970,12 @@ a {
   color: white !important;
   border-radius: 9999px;
   padding: 0.5em 1em;
-  transition-duration: 0.2s;
   background-color: #1da1f2;
 }
 
 .button-primary:hover {
   background-color: #1d81c2;
+  transition-duration: 0.2s;
 }
 
 .button-secondary {
@@ -10986,11 +10986,11 @@ a {
   border: 1px solid #1DA1F2;
   border-radius: 9999px;
   padding: 0.5em 1em;
-  transition-duration: 0.2s;
 }
 
 .button-secondary:hover {
   background-color: rgba(29, 161, 242, 0.2);
+  transition-duration: 0.2s;
 }
 
 .button-nav {
@@ -11001,11 +11001,26 @@ a {
   color: black !important;
   border-radius: 9999px;
   padding: 0.5em 1em;
-  transition-duration: 0.2s;
+}
+
+@media (max-width: 660px) {
+  .button-nav p {
+    display: none;
+  }
+
+  .sidebar-left {
+    padding: 10px !important;
+  }
+
+  .sidebar-left div img,
+  .sidebar-left div ul {
+    margin: 0 auto;
+  }
 }
 
 .button-nav:hover {
   background-color: rgba(29, 161, 242, 0.2);
+  transition-duration: 0.2s;
 }
 
 .profile-button {
@@ -11018,6 +11033,7 @@ a {
   right: 3vw;
   bottom: 3em;
   padding: 1em !important;
+  transition-duration: 0.2s;
   -webkit-animation: right-left-transition 0.75s;
           animation: right-left-transition 0.75s;
 }

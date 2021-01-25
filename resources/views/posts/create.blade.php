@@ -6,6 +6,9 @@
         <div class="col-8 offset-2">
 
             <div class="row">
+                <a href="javascript:history.back()" class="my-auto mr-4">
+                    <img src="{{ asset('svg/back.svg') }}" style="height: 2rem;" alt="Back">
+                </a>
                 <h1>Add New Tor</h1>
             </div>
 
