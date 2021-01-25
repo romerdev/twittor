@@ -25,7 +25,9 @@
     <div class="row">
         <div class="col-12 d-flex justify-content-between">
             <img src="https://pbs.twimg.com/profile_images/1347983866179559431/5q3Y4QhU_400x400.jpg" style="min-height: 75px; height: 20vw; max-height: 150px; margin-top: -75px; border: 5px solid white;" class="rounded-circle profile-picture" alt="Profile Picture">
-            <a href="/profile/{{ $user->id }}/edit" class="mt-2 button-secondary profile-button">Edit Profile</a>
+            @can('update', $user->profile)
+                <a href="/profile/{{ $user->id }}/edit" class="mt-2 button-secondary profile-button">Edit Profile</a>
+            @endcan
         </div>
     </div>
     <div class="row mt-2">
