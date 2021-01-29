@@ -10,7 +10,9 @@ class ProfilesController extends Controller
 
     public function index(User $user)
     {
-        return view('profiles.index', compact('user'));
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+
+        return view('profiles.index', compact('user', 'follows'));
     }
 
     public function edit(User $user)
@@ -28,7 +30,7 @@ class ProfilesController extends Controller
             'name' => ['required', 'string', 'max:50'],
             'description' => ['max:160', 'nullable'],
             'url' => ['max:100', 'url', 'nullable'],
-            'image' => '',
+            'image' => 'image',
         ]);
 
         auth()->user()->profile->user->update([
@@ -45,6 +47,20 @@ class ProfilesController extends Controller
             auth()->user()->profile->update([
                 'url' => $data['url'],
             ]);
+        }
+
+        $imagePath = null;
+
+        if(request()->hasFile('image')) {
+            $imagePath = request('image')->store('profile', 'public');
+        }
+
+        if(request()->has('image')) {
+
+            auth()->user()->profile->update([
+                'image' => $imagePath,
+            ]);
+
         }
 
         return redirect("/profile/{$user->id}");

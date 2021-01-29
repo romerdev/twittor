@@ -8,7 +8,9 @@
 
 <div class="container-sm profile">
     <div class="d-flex px-3 py-2 position-fixed w-100" style="background-color: white; z-index: 9999;">
-        <img src="{{ asset('svg/back.svg') }}" class="my-auto pr-4" style="height: 1.5rem;" alt="Back">
+        <a href="javascript:history.back()">
+            <img src="{{ asset('svg/back.svg') }}" class="my-auto pr-4" style="height: 1.5rem;" alt="Back">
+        </a>
         <div class="my-auto">
             <h5 style="font-weight: 700; font-size: 19px;" class="p-0">{{ $user->name }}</h5>
             <p style="margin-top: -12px; font-size: 13px;" class="text-muted mb-0">
@@ -24,10 +26,13 @@
     <img src="https://pbs.twimg.com/profile_banners/1007518403979038720/1608798528/1500x500" style="width: 100%; max-height: 300px; object-fit: cover; margin-top: 54px;" alt="Profile Banner">
     <div class="row">
         <div class="col-12 d-flex justify-content-between">
-            <img src="https://pbs.twimg.com/profile_images/1347983866179559431/5q3Y4QhU_400x400.jpg" style="min-height: 75px; height: 20vw; max-height: 150px; margin-top: -75px; border: 5px solid white;" class="rounded-circle profile-picture" alt="Profile Picture">
+            <img src="{{ $user->profile->profileImage() }}" style="height: 150px; width: 150px; object-fit: cover; margin-top: -75px; border: 5px solid white;" class="rounded-circle profile-picture" alt="Profile Picture">
             @can('update', $user->profile)
                 <a href="/profile/{{ $user->id }}/edit" class="mt-2 button-secondary profile-button">Edit Profile</a>
             @endcan
+            @cannot('update', $user->profile)
+                <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
+            @endcannot
         </div>
     </div>
     <div class="row mt-2">
@@ -40,8 +45,8 @@
             <p style="font-size: 15px;" class="mb-1">{{ $user->profile->description }}</p>
             <a href="{{ $user->profile->url }}" target="_blank">{{ $user->profile->url }}</a>
             <div class="d-flex mt-1">
-                <p style="font-size: 15px;" class="mr-3"><strong>43</strong><span class="text-muted"> Following</span></p>
-                <p style="font-size: 15px;"><strong>1.8M</strong><span class="text-muted"> Followers</span></p>
+                <p style="font-size: 15px;" class="mr-3"><strong>{{ $user->following->count() }}</strong><span class="text-muted"> Following</span></p>
+                <p style="font-size: 15px;"><strong>{{ $user->profile->followers->count() }}</strong><span class="text-muted"> Followers</span></p>
             </div>
         </div>
     </div>
@@ -52,7 +57,7 @@
             <a href="/p/{{ $post->id }}" class="text-decoration-none text-dark">
                 <div class="row py-2" style="flex-wrap: nowrap;">
                     <div>
-                            <img src="https://pbs.twimg.com/profile_images/1347983866179559431/5q3Y4QhU_400x400.jpg" style="width: 50px;" class="rounded-circle mr-2" alt="Profile Picture">
+                            <img src="{{ $user->profile->profileImage() }}" style="width: 50px; height: 50px; object-fit: cover" class="rounded-circle mr-2" alt="Profile Picture">
                     </div>
                     <div class="w-100">
                         <div class="d-flex">

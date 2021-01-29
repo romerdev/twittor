@@ -14,14 +14,18 @@
 
         <div class="row py-2" style="flex-wrap: nowrap;">
             <div style="margin-top: 65px;">
-                <img src="https://pbs.twimg.com/profile_images/1347983866179559431/5q3Y4QhU_400x400.jpg" style="width: 50px;" class="rounded-circle mr-2" alt="Profile Picture">
+                <a href="/profile/{{ $post->user->id }}">
+                    <img src="{{ $post->user->profile->profileImage() }}" style="width: 50px; height: 50px; object-fit: cover" class="rounded-circle mr-2" alt="Profile Picture">
+                </a>
             </div>
             <div class="w-100" style="margin-top: 65px;">
                 <div>
-                    <p class="mb-0"><strong>{{ $post->user->name }}</strong></p>
-                    <p class="mb-0" style="margin-top: -5px;">
-                        <span class="text-muted"><?php echo('@')?>{{$post->user->username}}</span>
-                    </p>
+                    <a href="/profile/{{ $post->user->id }}" style="color: black !important; text-decoration: none;">
+                        <p class="mb-0"><strong>{{ $post->user->name }}</strong></p>
+                        <p class="mb-0" style="margin-top: -5px;">
+                            <span class="text-muted"><?php echo('@')?>{{$post->user->username}}</span>
+                        </p>
+                    </a>
                 </div>
             </div>
         </div>
