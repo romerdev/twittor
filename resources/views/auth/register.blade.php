@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <a href="/">
+                    <a href="javascript:history.back()">
                         <img src="{{ asset('svg/back.svg') }}" class="my-auto pr-4" style="height: 1.5rem;" alt="Back">
                     </a>
                     {{ __('Register') }}

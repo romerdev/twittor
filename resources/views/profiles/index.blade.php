@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="/p/create" class="button-primary tor-button">
+<a href="{{ route("posts.create") }}" class="button-primary tor-button">
     <img src="{{ asset('svg/tor.svg') }}" style="height: 1.5em;" alt="Add Tor">
 </a>
 
@@ -28,7 +28,7 @@
         <div class="col-12 d-flex justify-content-between">
             <img src="{{ $user->profile->profileImage() }}" style="height: 150px; width: 150px; object-fit: cover; margin-top: -75px; border: 5px solid white;" class="rounded-circle profile-picture" alt="Profile Picture">
             @can('update', $user->profile)
-                <a href="/profile/{{ $user->id }}/edit" class="mt-2 button-secondary profile-button">Edit Profile</a>
+                <a href="{{ route("profile.edit", $user->id) }}" class="mt-2 button-secondary profile-button">Edit Profile</a>
             @endcan
             @cannot('update', $user->profile)
                 <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
@@ -54,10 +54,10 @@
 
     @if($user->posts->count() != 0)
         @foreach($user->posts as $post)
-            <a href="/p/{{ $post->id }}" class="text-decoration-none text-dark">
+            <a href="{{ route("posts.show", $post->id) }}" class="text-decoration-none text-dark">
                 <div class="row py-2" style="flex-wrap: nowrap;">
                     <div>
-                            <img src="{{ $user->profile->profileImage() }}" style="width: 50px; height: 50px; object-fit: cover" class="rounded-circle mr-2" alt="Profile Picture">
+                        <img src="{{ $user->profile->profileImage() }}" style="width: 50px; height: 50px; object-fit: cover" class="rounded-circle mr-2" alt="Profile Picture">
                     </div>
                     <div class="w-100">
                         <div class="d-flex">

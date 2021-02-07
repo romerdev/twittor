@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <a href="/p/create" class="button-primary tor-button">
+    <a href="{{ route("posts.create") }}" class="button-primary tor-button">
         <img src="{{ asset('svg/tor.svg') }}" style="height: 1.5em;" alt="Add Tor">
     </a>
 
@@ -21,7 +21,7 @@
 
         @if($posts->count() != 0)
             @foreach($posts as $post)
-                <a href="/p/{{ $post->id }}" class="text-decoration-none text-dark">
+                <a href="{{ route("show", $post->id) }}" class="text-decoration-none text-dark">
                     <div class="row py-2" style="flex-wrap: nowrap;">
                         <div>
                             <img src="{{ $post->user->profile->profileImage() }}" style="width: 50px; height: 50px; object-fit: cover" class="rounded-circle mr-2" alt="Profile Picture">

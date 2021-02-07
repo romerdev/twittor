@@ -28,13 +28,13 @@
         <div class="sidebar-left position-fixed h-100 px-5 py-3" style="width: 30vw;">
 
             <div style="max-width: 255px; margin-left: auto;">
-                <a href="/home" class="my-auto">
+                <a href="{{ route("posts.index") }}" class="my-auto">
                     <img src="{{ asset('svg/logo.svg') }}" alt="Twittor Logo" style="height: 45px !important; padding: .3em;" class="mb-3 button-nav">
                 </a>
                 <ul class="navbar-nav ml-auto">
 
                     <li class="mb-2 d-flex">
-                        <a class="button-nav d-flex @if(Route::current()->getName() === "posts.show") active @endif" href="/">
+                        <a class="button-nav d-flex @if(Route::current()->getName() === "posts.index") active @endif" href="{{ route("posts.index") }}">
                             <svg height='27px' width='27px' version="1.1" x="0px" y="0px" viewBox="0 0 24 24">
                                 <g>
                                     <path class="nav-icon" d="M22.46 7.57L12.357 2.115c-.223-.12-.49-.12-.713 0L1.543 7.57c-.364.197-.5.652-.303 1.017.135.25.394.393.66.393.12 0 .243-.03.356-.09l.815-.44L4.7 19.963c.214 1.215 1.308 2.062 2.658 2.062h9.282c1.352 0 2.445-.848 2.663-2.087l1.626-11.49.818.442c.364.193.82.06 1.017-.304.196-.363.06-.818-.304-1.016zm-4.638 12.133c-.107.606-.703.822-1.18.822H7.36c-.48 0-1.075-.216-1.178-.798L4.48 7.69 12 3.628l7.522 4.06-1.7 12.015z"></path>
@@ -46,11 +46,10 @@
                     </li>
 
                     <li class="mb-2 d-flex">
-                        <a class="button-nav d-flex @if(Route::current()->getName() === "users.show") active @endif" href="/users">
+                        <a class="button-nav d-flex @if(Route::current()->getName() === "users.show") active @endif" href="{{ route("users.show") }}">
                             <svg height='27px' width='27px' version="1.1" x="0px" y="0px" viewBox="0 0 24 24">
                                 <g>
-                                    <path class="nav-icon" d="M19.75 22H4.25C3.01 22 2 20.99 2 19.75V4.25C2 3.01 3.01 2 4.25 2h15.5C20.99 2 22 3.01 22 4.25v15.5c0 1.24-1.01 2.25-2.25 2.25zM4.25 3.5c-.414 0-.75.337-.75.75v15.5c0 .413.336.75.75.75h15.5c.414 0 .75-.337.75-.75V4.25c0-.413-.336-.75-.75-.75H4.25z"></path>
-                                    <path class="nav-icon" d="M17 8.64H7c-.414 0-.75-.337-.75-.75s.336-.75.75-.75h10c.414 0 .75.335.75.75s-.336.75-.75.75zm0 4.11H7c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h10c.414 0 .75.336.75.75s-.336.75-.75.75zm-5 4.11H7c-.414 0-.75-.335-.75-.75s.336-.75.75-.75h5c.414 0 .75.337.75.75s-.336.75-.75.75z"></path>
+                                    <path class="nav-icon" d="M8.98 22.698c-.103 0-.205-.02-.302-.063-.31-.135-.49-.46-.44-.794l1.228-8.527H6.542c-.22 0-.43-.098-.573-.266-.144-.17-.204-.393-.167-.61L7.49 2.5c.062-.36.373-.625.74-.625h6.81c.23 0 .447.105.59.285.142.18.194.415.14.64l-1.446 6.075H19c.29 0 .553.166.678.428.124.262.087.57-.096.796L9.562 22.42c-.146.18-.362.276-.583.276zM7.43 11.812h2.903c.218 0 .425.095.567.26.142.164.206.382.175.598l-.966 6.7 7.313-8.995h-4.05c-.228 0-.445-.105-.588-.285-.142-.18-.194-.415-.14-.64l1.446-6.075H8.864L7.43 11.812z"></path>
                                 </g>
                             </svg>
                             <p class="my-auto pl-2 ">{{ __('Users') }}</p>
@@ -78,7 +77,7 @@
                     @else
 
                         <li class="mb-2 d-flex">
-                            <a class="button-nav d-flex @if(Route::current()->getName() === "profile.show") active @endif" href="/profile/{{ Auth::user()->id }}">
+                            <a class="button-nav d-flex @if(Route::current()->getName() === "profile.show") active @endif" href="{{ route("profile.show", Auth::user()->id) }}">
                                 <svg height='27px' width='27px' version="1.1" x="0px" y="0px" viewBox="0 0 24 24">
                                     <g>
                                         <path class="nav-icon" d="M12 11.816c1.355 0 2.872-.15 3.84-1.256.814-.93 1.078-2.368.806-4.392-.38-2.825-2.117-4.512-4.646-4.512S7.734 3.343 7.354 6.17c-.272 2.022-.008 3.46.806 4.39.968 1.107 2.485 1.256 3.84 1.256zM8.84 6.368c.162-1.2.787-3.212 3.16-3.212s2.998 2.013 3.16 3.212c.207 1.55.057 2.627-.45 3.205-.455.52-1.266.743-2.71.743s-2.255-.223-2.71-.743c-.507-.578-.657-1.656-.45-3.205zm11.44 12.868c-.877-3.526-4.282-5.99-8.28-5.99s-7.403 2.464-8.28 5.99c-.172.692-.028 1.4.395 1.94.408.52 1.04.82 1.733.82h12.304c.693 0 1.325-.3 1.733-.82.424-.54.567-1.247.394-1.94zm-1.576 1.016c-.126.16-.316.246-.552.246H5.848c-.235 0-.426-.085-.552-.246-.137-.174-.18-.412-.12-.654.71-2.855 3.517-4.85 6.824-4.85s6.114 1.994 6.824 4.85c.06.242.017.48-.12.654z"></path>

@@ -12,7 +12,7 @@
                 <h1>Add New Tor</h1>
             </div>
 
-            <form action="/p" enctype="multipart/form-data" method="post">
+            <form action="{{ route("posts.store") }}" enctype="multipart/form-data" method="post">
                 @csrf
 
                 <div class="form-group row">

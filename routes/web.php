@@ -17,10 +17,10 @@ Auth::routes();
 
 Route::post('/follow/{user}', [App\Http\Controllers\FollowsController::class, 'store']);
 
-Route::get('/', [App\Http\Controllers\PostsController::class, 'index'])->name('posts.show');
-Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create']);
-Route::post('/p', [App\Http\Controllers\PostsController::class, 'store']);
-Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show']);
+Route::get('/', [App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
+Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create'])->name('posts.create');
+Route::post('/p', [App\Http\Controllers\PostsController::class, 'store'])->name('posts.store');
+Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show'])->name('posts.show');
 
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.show');
 
