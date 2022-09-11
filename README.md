@@ -1,4 +1,4 @@
-# Twitter Clone
+# Twitter Clone: Twittor
 Created with Laravel
 
 I made a working Twitter Clone using Laravel. The basics are there!
